@@ -1,3 +1,13 @@
 <h1>Showing articlee </h1>
  <h2>Title : </h2> <%= @articlee.title %>   
- <h2>Description :  </h2> <%= @articlee.description %>
+ <h2>Description :  </h2> <%= @articlee.description %><br><br>
+
+<td><button><%= link_to 'Edit' , edit_articlee_path(@articlee)  %></button></td>
+&nbsp;&nbsp;
+<span><td><button><%= link_to 'Delete' , articlee_path(@articlee) , method: :delete, data: {confirm: "Are you sure ?"} %></button></td></span>
+
+&nbsp;&nbsp;
+<span><td><button><%= link_to 'Return to Articles List' , articlees_path %></button></td></span>
+<!-- <%= link_to 'Edit' , edit_articlee_path(@articlee)%> | 
+<%= link_to 'Delete' , articlee_path(@articlee) , method: :delete%> | 
+<%= link_to 'Return to articles list' , articlees_path %> --> 

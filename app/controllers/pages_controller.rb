@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-    def index 
+    def home 
         # render html: 'hello world'
     end
     def about
