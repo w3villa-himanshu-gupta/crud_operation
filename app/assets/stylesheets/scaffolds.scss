@@ -1,6 +1,6 @@
 body {
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #333;
   margin: 33px; }
 
 body, p, ol, ul, td {
@@ -14,14 +14,14 @@ pre {
   font-size: 11px; }
 
 a {
-  color: violet; }
+  color: #000; }
 
 a:visited {
-  color: blue; }
+  color: #666; }
 
 a:hover {
-  color: black;
- }
+  color: #fff;
+  background-color: #000; }
 
 th {
   padding-bottom: 5px; }

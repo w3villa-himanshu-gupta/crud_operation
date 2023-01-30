@@ -1,5 +1,4 @@
 class ArticleesController < ApplicationController
-    before_action :set_articlee , only: [:edit, :show,:update, :destroy]
     def index
         @articlees = Articlee.all
     end
@@ -8,17 +7,17 @@ class ArticleesController < ApplicationController
 
     end
     def edit
-        # @articlee = Articlee.find(params[:id])
+        @articlee = Articlee.find(params[:id])
     
     end
     def update
-        # @articlee = Articlee.find(params[:id])
+        @articlee = Articlee.find(params[:id])
         if @articlee.update(params.require(:articlee).permit(:title, :description))
             flash[:notice] = "Article was updated successfully"
             redirect_to @articlee
         else
             render 'edit'
-    end
+        end
             # @articlee.save
         # redirect_to @articlee
         # if @articlee.save
@@ -33,7 +32,7 @@ class ArticleesController < ApplicationController
     end
     def create
         # render plain: params[:articlee]
-        @articlee = Articlee.new(articlee_params)
+        @articlee = Articlee.new(params.require(:articlee).permit(:title , :description))
         # @articlee.save
         # redirect_to @articlee
         # render plain: @articlee
@@ -55,34 +54,6 @@ class ArticleesController < ApplicationController
         @articlee = Articlee.find(params[:id])
 
     end
-    def update
-        # @articlee = Articlee.find(params[:id])
-        if @articlee.update(articlee_params)
-            flash[:notice] = "Article was updated successfully"
-            redirect_to @articlee
-        else
-            render 'edit'
-        end
-
-
-    end
-    def destroy
-        # @articlee = Articlee.find(params[:id])
-        
-        @articlee.destroy
-        redirect_to articlees_path
-    end
-    private
-
-    def set_articlee
-        @articlee = Articlee.find(params[:id])
-    end
-    def articlee_params
-        params.require(:articlee).permit(:title , :description)
-    
-    end
-
-
    
 
 
